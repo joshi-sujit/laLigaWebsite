@@ -1,0 +1,26 @@
+<h4>
+	League Chart</h4>
+<table class="table table-hover tbl-custom">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th width="30%">Club</th>
+			<th>GP</th>
+			<th>W</th>
+			<th>D</th>
+			<th>L</th>
+			<th>P</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class='clickable-row' data-href='' *ngFor="let team of record.standing">
+			<td>{{ team.position }}</td>
+			<td>{{ team.teamName }}</td>
+			<td>{{ team.playedGames }}</td>
+			<td>{{ team.wins }}</td>
+			<td>{{ team.draws }}</td>
+			<td>{{ team.losses }}</td>
+			<td>{{ team.points }}</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,42 @@
+<section id="club-link" class="section-box">
+    <div class="container">
+        <h4>La Liga Clubs </h4>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="image-container" *ngFor = "let team of _data.teams">
+                    <img src="{{ team.crestUrl }}" class="image" />
+                    <div class="content">
+                        <div class="text_area">
+                            <a href="" target="_blank">{{ team.name}}</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<!--END club weblink-->
+<div class="clearfix"></div>
+
+
+<footer>
+    <div class="container">
+        Copyright @2017
+        <div class="social-media">
+            <div class="social-text">
+                Find Us on:
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/LaLiga/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/LaLiga?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/laliga/?hl=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
