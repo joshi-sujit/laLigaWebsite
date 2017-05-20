@@ -1,0 +1,11 @@
+
+<span *ngFor="let a of data">
+  <div class="game-wrapper" *ngIf="a.status=='TIMED'" >
+    
+    <span class="game-date" *ngIf="a.status=='TIMED'">{{ a.date | date }}</span>
+    <span *ngIf="a.status=='TIMED'"> {{ a.homeTeamName }} </span> VS 
+    <span *ngIf="a.status=='TIMED'">{{ a.awayTeamName }}</span>
+    <span *ngIf="a.status=='TIMED'"> <i class="fa fa-angle-double-right"></i></span>
+  </div>
+</span>
+

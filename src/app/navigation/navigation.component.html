@@ -5,19 +5,22 @@
          </button>
 	<div class="container">
 		<div class="col-md-2 col-xs-12">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" routerLink="/">
 				<img src="assets/img/laliga-v-600x600 copy.png" width="70" height="auto" alt="La Liga">
 			</a>
 		</div>
 		<div class="col-md-4 col-xs-12 offset-md-6">
 			<div class="row">
 				<div class="col-md-12">
-					<form class="navbar-form" role="search">
+					<form class="navbar-form" role="search" >
 						<div class="input-group col-md-10">
-							<input type="text" class="form-control form-control-sm" placeholder="Search" name="srch-term" id="srch-term">
+							<input type="text" class="form-control form-control-sm" placeholder="Search" name="srch-term" id="srch-term" list="teams" >
 							<span class="input-group-addon">
                                     <i class="fa fa-search"></i>
                             </span>
+							<datalist id="teams">
+								<option *ngFor = "let team of parentData" value="{{ team.name }}">
+							</datalist>
 						</div>
 					</form>
 				</div>
@@ -26,16 +29,26 @@
 					<div class="collapse navbar-collapse " id="startupNav">
 						<ul class="nav navbar-nav">
 							<li class="nav-item active">
-								<a class="nav-link" href="#"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+								<a class="nav-link" routerLink="/"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item dropdown  dropdown-menu-left">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+								 aria-expanded="false">
+         							 <i class="fa fa-users"></i> Teams
+        						</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="right: 0; left: auto;">
+
+									<a class="dropdown-item" routerLink="/team/{{team._links.self.href |split }}"  *ngFor = "let team of parentData">
+										<span><img src="{{ team.crestUrl }}" class="image" /></span>
+										{{ team.name }}
+									</a>
+								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#"><i class="fa fa-calendar"></i> Fixtures</a>
+								<a class="nav-link"  routerLink="/fixture/"><i class="fa fa-calendar"></i> Fixtures</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#"><i class="fa fa-anchor"></i> Results</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="team.html"><i class="fa fa-users"></i> Teams</a>
+								<a class="nav-link"  routerLink="/result/"><i class="fa fa-anchor"></i> Results</a>
 							</li>
 						</ul>
 					</div>

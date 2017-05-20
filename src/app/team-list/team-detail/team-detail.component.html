@@ -1,3 +1,100 @@
-<p>
-  team-detail works!
-</p>
+<section class="section-box">
+	<div class="container main-content">
+		<div class="row club-title-wrapper">
+			<div class="col-md-2 team-image-logo">
+				<img src="{{ record.crestUrl  }}" alt="FC Barcelona">
+			</div>
+			<div class="col-md-10">
+				<h5 style="font-size:2.25rem!important"> {{ record.code  }}</h5>
+				<h1 style="font-size:4.5rem!important">{{ record.name | uppercase}}</h1>
+				
+				<h5> <i class="fa fa-facebook"></i> <i class="fa fa-instagram"></i> <i class="fa fa-twitter"></i></h5>
+			</div>
+		</div>
+		<!--TEAM DESCRIPTION-->
+		<!--END ROW-->
+
+		<div class="row">
+			<div class="col-md-7">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Upcoming Games</h4>
+						<app-game [data] = "fixtureData"></app-game>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h4>RECENT RESULTS</h4>
+						<BR>	
+					</div>
+				</div>
+				<div class="row">
+					
+					<div class="col-md-12">
+							<app-f-game [data] = "fixtureData"> </app-f-game>
+					</div>
+					
+				</div>
+				<!--UPCOMING GAMES & RECENT RESULTS OF TEAM-->
+				
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Team performance</h4>
+					</div>
+					<div class="col-md-12">
+					<table class="table datatable table-hover">
+							<thead>
+								<th>Match Date</th>
+								<th> Home Team </th>
+								<th> Score </th>
+								<th> Score </th>
+								<th> Away Team </th>
+								
+							</thead>
+							<tbody >
+								 
+								<tr *ngFor = "let fixture of fixtureData | tail : 20 " >
+									<td *ngIf="fixture.status == 'FINISHED' ">{{ fixture.date | date }}</td>
+									<td *ngIf="fixture.status == 'FINISHED'">{{ fixture.homeTeamName }}</td>
+									<td *ngIf="fixture.status == 'FINISHED'">{{fixture.result.goalsHomeTeam }}</td>
+									<td *ngIf="fixture.status == 'FINISHED'">{{fixture.result.goalsAwayTeam }}</td>
+									<td *ngIf="fixture.status == 'FINISHED'">{{ fixture.awayTeamName }}</td>
+									
+								</tr>
+								
+							</tbody>
+							
+						
+						</table>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-5">
+				<h4>Squad List</h4>
+				<table datatable [dtTrigger]="dtTrigger" class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Position</th>
+							<th>Contract</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let player of squadList.players">
+							<th scope="row">{{ player.jerseyNumber }}</th>
+							<td>{{ player.name }}</td>
+							<td>{{ player.position }}</td>
+							<td>{{ player.contractUntil | date }}</td>
+							
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!--END CONTAINER-->
+</section>

@@ -1,0 +1,23 @@
+<section class="section-box">
+  <div class="container main-content">
+    <div class="col-md-12">
+      <h4>FIXTURE</h4>
+      <table class="table table-hover" datatable [dtTrigger]="dtTrigger">
+        <thead>
+          <tr>
+          <th> Home Team </th>
+           <th>Match Date</th>
+          <th> Away Team </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fixture of _upcomingFixtureData.fixtures">
+            <td>{{ fixture.homeTeamName }}</td>
+            <td>{{ fixture.date | date }}</td>
+            <td>{{ fixture.awayTeamName }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

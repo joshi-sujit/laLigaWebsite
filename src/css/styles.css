@@ -72,8 +72,41 @@ h4{
     text-decoration: none;
     border-bottom: 3px solid transparent;    
     transition: 0.5s ease;
-    
 }
+
+
+.nav>.dropdown>.dropdown-menu>a{
+  color:#000 !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    -webkit-columns:  3; /* Chrome, Safari, Opera */
+  -moz-columns: 3; /* Firefox */
+  columns:  3;
+ }
+
+.nav>.dropdown>.dropdown-menu img{
+  height: 50px;
+  width: auto;
+}
+
+@media (max-width: 526px) {
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      -webkit-columns:  1; /* Chrome, Safari, Opera */
+     -moz-columns: 1; /* Firefox */
+      columns:  1;
+ }
+
+  .nav>.dropdown>.dropdown-menu img{
+    height: 20px;
+    width: auto;
+  }
+}
+
+
 
 .nav a:hover{
     text-decoration: underline;
@@ -112,7 +145,7 @@ h4{
 .game-wrapper{
     background: white;
     padding: 10px 3px;
-    word-spacing: 10px;
+    word-spacing: 2px;
     text-align: center;
     font-weight: bold;
     transition : 0.75s ease;
@@ -123,7 +156,7 @@ h4{
   background: #729f98;
   cursor: pointer;
   font-weight: bolder;
-  word-spacing: 11px;
+  word-spacing: 2.5px;
   color: white;
 }
 
@@ -147,7 +180,7 @@ h4{
 .game-wrapper .game-date{
     display: block;
     padding-bottom: 5px;
-    font-size: 9px;
+    font-size: 10px;
     word-spacing: normal;
 }
 
@@ -185,6 +218,7 @@ h4{
 
 .tbl-custom td{
   font-size:10px;
+  font-weight: bold;
 }
     
 /*CLUB LINK*/
@@ -290,6 +324,16 @@ footer{
 .club-title-wrapper{
   margin-bottom: 15px;
 
+}
+
+#columns {
+  -moz-column-count: 2;
+  -moz-column-gap: 10px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 10px;
+  column-count: 2;
+  column-gap: 10px;
+  
 }
 /*
 body{

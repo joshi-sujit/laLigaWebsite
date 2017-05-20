@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Team } from './team.model';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { TeamService } from '../team.service';
 
-
+import { Subject } from 'rxjs/Rx';
 @Component({
 	selector: 'app-team-list',
 	templateUrl: './team-list.component.html',
@@ -11,15 +10,23 @@ import { TeamService } from '../team.service';
 export class TeamListComponent implements OnInit {
 	record = {};
 	errorMsg: string;
-	constructor(private _teamService: TeamService) { }
 
-	ngOnInit() {
-		this._teamService.getLeagueTable()
-			.subscribe(resTeamData => this.record = resTeamData
-			, resErrorData => this.errorMsg = resErrorData);
-		
+	dtTrigger: Subject<any> = new Subject();
+	constructor(private _teamService: TeamService) {
 	}
 
-	
+	ngOnInit() {
+		
+		this._teamService.getLeagueTable()
+			.subscribe(resTeamData => {this.record = resTeamData; this.dtTrigger.next();}
+			, resErrorData => this.errorMsg = resErrorData);
+
+	}
+
+
+
+
+
+
 
 }

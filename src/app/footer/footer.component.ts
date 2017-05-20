@@ -1,22 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamService } from '../team.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
+	inputs: ['parentData']
 })
 export class FooterComponent implements OnInit {
-
-  _data = {};
-	errorMsg: string;
-	constructor(private _teamService: TeamService) { }
+	public parentData:{};
+	constructor() { }
 
 	ngOnInit() {
-		this._teamService.getTeams()
-			.subscribe(resTeamData => this._data = resTeamData
-			, resErrorData => this.errorMsg = resErrorData);
-		
 	}
 
 }

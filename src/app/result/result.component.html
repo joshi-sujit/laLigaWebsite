@@ -1,0 +1,31 @@
+<section class="section-box">
+	<div class="container main-content">
+		<div class="col-md-12">
+			<h4> RESULTS </h4>
+			<table  datatable [dtTrigger]="dtTrigger" [dtOptions]="dtOptions" class="table">
+				<thead>
+					<tr>
+						<th> Home Team </th>
+						<th> Home Score </th>
+						<th>Match Date </th>
+						<th> Away Score</th>
+						<th> Away Team </th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<!--ng-template ngFor let-data [ngForOf]="_data"-->
+						<!--tr *ngIf="_data.status == 'FINISHED'"-->
+						<tr *ngFor = "let data of _data">
+							<td >{{ data.homeTeamName }}</td>
+							<td>{{ data.result.goalsHomeTeam }}</td>
+							<td>{{ data.date | date }}</td>
+							<td >{{ data.result.goalsAwayTeam }}</td>
+							<td >{{ data.awayTeamName }}</td>
+						</tr>
+					<!--ng-template-->
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>

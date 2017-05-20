@@ -1,6 +1,6 @@
 <h4>
 	League Chart</h4>
-<table class="table table-hover tbl-custom">
+<table datatable [dtTrigger]="dtTrigger" class="table table-hover tbl-custom">
 	<thead>
 		<tr>
 			<th>#</th>
@@ -13,7 +13,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class='clickable-row' data-href='' *ngFor="let team of record.standing">
+		<tr  class='clickable-row' data-href='' *ngFor="let team of record.standing" id="example">
 			<td>{{ team.position }}</td>
 			<td>{{ team.teamName }}</td>
 			<td>{{ team.playedGames }}</td>
@@ -24,3 +24,4 @@
 		</tr>
 	</tbody>
 </table>
+

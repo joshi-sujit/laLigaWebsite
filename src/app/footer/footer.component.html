@@ -4,11 +4,11 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="image-container" *ngFor = "let team of _data.teams">
+                <div class="image-container" *ngFor = "let team of parentData">
                     <img src="{{ team.crestUrl }}" class="image" />
                     <div class="content">
                         <div class="text_area">
-                            <a href="" target="_blank">{{ team.name}}</a>
+                            <a routerLink="/team/{{team._links.self.href |split }}">{{ team.name}}</a>
                         </div>
                     </div>
                 </div>
@@ -18,12 +18,9 @@
             </div>
         </div>
     </div>
-
-
 </section>
 <!--END club weblink-->
 <div class="clearfix"></div>
-
 
 <footer>
     <div class="container">

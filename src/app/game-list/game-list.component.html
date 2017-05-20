@@ -1,60 +1,15 @@
 
-  <h4>RECENT SCORES OF TODAY</h4>
-  <div class="game-wrapper">
-    <span class="game-date">Saturday, 6 May 2016</span>
-    <span> FCB </span>
-    <div class="club-icon"><img src="img/club1.png"></div>
-    <span class="score">0</span> VS
-    <span class="score">1</span>
-    <div class="club-icon"><img src="img/club2.png"></div>
-    <span>INS</span>
-    <span> <i class="fa fa-angle-double-right"></i></span>
-  </div>
 
-  <div class="game-wrapper">
-    <span class="game-date">Saturday, 6 May 2016</span>
-    <span> FCB </span>
-    <div class="club-icon"><img src="img/club1.png"></div>
-    <span class="score">0</span> VS
-    <span class="score">1</span>
-    <div class="club-icon"><img src="img/club2.png"></div>
-    <span>INS</span>
-    <span> <i class="fa fa-angle-double-right"></i></span>
-  </div>
+<div class="game-wrapper" *ngFor="let a of data | slice:0:4; let i=index">
+  <span class="game-date">{{ a.date | date }}</span>
+  <span> {{ a.homeTeamName }} </span>
+  <span class="score" *ngIf="a.result.goalsHomeTeam!=null">{{a.result.goalsHomeTeam }}</span> VS
+  <span class="score" *ngIf="a.result.goalsAwayTeam!=null">{{a.result.goalsAwayTeam }}</span>
+  <span>{{ a.awayTeamName }}</span>
+  <span> <i class="fa fa-angle-double-right"></i></span>
+</div>
 
-  <div class="game-wrapper">
-    <span class="game-date">Saturday, 6 May 2016</span>
-    <span> FCB </span>
-    <div class="club-icon"><img src="img/club1.png"></div>
-    <span class="score">0</span> VS
-    <span class="score">1</span>
-    <div class="club-icon"><img src="img/club2.png"></div>
-    <span>INS</span>
-    <span> <i class="fa fa-angle-double-right"></i></span>
-  </div>
+<div class="more-section" *ngIf="flag == 1"><a routerLink="/result" >MORE..</a></div>
+<div class="more-section"*ngIf="flag == 2" ><a routerLink="/fixture">MORE..</a></div>
 
-  <div class="game-wrapper">
-    <span class="game-date">Saturday, 6 May 2016</span>
-    <span> FCB </span>
-    <div class="club-icon"><img src="img/club1.png"></div>
-    <span class="score">0</span> VS
-    <span class="score">1</span>
-    <div class="club-icon"><img src="img/club2.png"></div>
-    <span>INS</span>
-    <span> <i class="fa fa-angle-double-right"></i></span>
-  </div>
-
-  <div class="game-wrapper">
-    <span class="game-date">Saturday, 6 May 2016</span>
-    <span> FCB </span>
-    <div class="club-icon"><img src="img/club1.png"></div>
-    <span class="score">0</span> VS
-    <span class="score">1</span>
-    <div class="club-icon"><img src="img/club2.png"></div>
-    <span>INS</span>
-    <span> <i class="fa fa-angle-double-right"></i></span>
-  </div>
-
-  <div class="more-section">
-    <a href="#">More..</a>
-  </div>
+  

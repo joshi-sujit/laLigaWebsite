@@ -1,0 +1,24 @@
+<table class="table table-hover">
+	<thead>
+		<th>Match Date</th>
+		<th> Home Team </th>
+		<th> Score </th>
+		<th> Score </th>
+		<th> Away Team </th>
+
+	</thead>
+	<tbody>
+
+		<tr *ngFor="let fixture of data">
+			<td *ngIf="fixture.status == 'FINISHED' ">{{ fixture.date | date }}</td>
+			<td *ngIf="fixture.status == 'FINISHED'">{{ fixture.homeTeamName }}</td>
+			<td *ngIf="fixture.status == 'FINISHED'">{{fixture.result.goalsHomeTeam }}</td>
+			<td *ngIf="fixture.status == 'FINISHED'">{{fixture.result.goalsAwayTeam }}</td>
+			<td *ngIf="fixture.status == 'FINISHED'">{{ fixture.awayTeamName }}</td>
+
+		</tr>
+
+	</tbody>
+
+
+</table>
